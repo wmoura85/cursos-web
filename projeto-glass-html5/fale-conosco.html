@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8"/>
+    <title> Tudo sobre Google Glass</title>
+    <link rel="stylesheet" href="_css/estilo.css"/>
+    <link rel="stylesheet" href="_css/form.css">
+    <script src="_javascript/funcoes.js"></script>
+    <script>
+        function calc_total() {
+            var qtd = (document.getElementById('cqtd').value);
+            tot = qtd * 1500;
+            document.getElementById('ctot').value = tot;
+        }
+    </script>
+
+</head>
+<body>
+<div id="interface">
+
+    <header id="cabecalho">
+        <hgroup>
+            <h1>Google Glass</h1>
+            <h2>A revolução do Google está chegando</h2>
+        </hgroup>
+
+        <img id="icone" src="_imagens/glass-oculos-preto-peq.png"/>
+
+        <nav id="menu">
+            <h1>Menu Principal</h1>
+            <ul>
+                <li onmouseover="mudaFoto('_imagens/home.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="index.html"> Home</a></li>
+                <li onmouseover="mudaFoto('_imagens/especificacoes.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="specs.html"> Especificações</a></li>
+                <li onmouseover="mudaFoto('_imagens/fotos.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fotos.html"> Fotos</a></li>
+                <li onmouseover="mudaFoto('_imagens/multimidia.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="multimidia.html"> Multimídia</a></li>
+                <li onmouseover="mudaFoto('_imagens/contato.png')" onmouseout="mudaFoto('_imagens/contato.png')"><a href="fale-conosco.html"> Fale conosco</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="corpo-full">
+        <article id="noticia-principal">
+            <header id="cabecalho-artigo">
+                <hgroup>
+                    <h3>Fale Conosco > Contato</h3>
+                    <h1>Formulário de Contato</h1>
+                    <h2>por Gustavo Guanabara</h2>
+                    <h3 class="direita">Atualizado em 01/Maio/2013</h3>
+                </hgroup>
+            </header>
+
+<form method="post" id="fcontato" action="mailto:contato@cursoemvideo.com.br" oninput="calc_total();">
+
+    <fieldset id="usuario"><legend>Identificação do Usuário</legend>
+   <p><label for="cnome">Nome:</label> <input type="text" name="tnome" id="cnome" size="20" maxlength="30" placeholder="Nome completo"/></p>
+   <p> <label for="csenha">Senha:</label> <input type="password" name="tsenha" id="csenha" size="8" maxlength="8" placeholder="8 digitos"/></p>
+   <p> <label for="cmail">E-mail:</label> <input type="email" name="tmail" id="cmail" size="30" maxlength="40" placeholder="Endereço de e-mail"/></p>
+    <fieldset id="sexo"><legend>Sexo</legend>
+        <input type="radio" name="tsexo" id="cmasc"/><label for="cmasc">Masculino</label><br/>
+        <input type="radio" name="tsexo" id="cfem"/><label for="cfem">Feminino</label>
+    </fieldset>
+    <p><label for="cnasc">Data de Nascimento:</label> <input type="date" name="tnasc" id="cnasc"/></p>
+    </fieldset>
+
+<fieldset id="endereco"><legend>Endereço do Usuário</legend>
+   <p><label for="clog">Logradouro:</label> <input type="text" name="tlog" id="clog" size="20" maxlength="85" placeholder="Rua, av, Trav..."/></p>
+    <p><label for="cnum">Número:</label> <input type="number" name="tnum" id="cnum" min="0" max="99999"/></p>
+    <p><label for="cest">Estado:</label>
+    <select name="test" id="cest">
+       <optgroup label="Região Sudeste">
+       <option value="RJ">Rio de Janeiro</option>
+        <option value="SP">São Paulo</option>
+        <option value="MG">Minas Gerais</option>
+       </optgroup>
+
+        <optgroup label="Região Sul">
+        <option value="PR">Paraná</option>
+        <option VALUE="SC">Santa Catarina</option>
+        <option value="RS">Rio Grande do Sul</option>
+        </optgroup>
+
+    </select> </p>
+    <p><label for="ccid">Cidade:</label>
+    <input type="text" name="tcid" id="ccid" maxlength="40" size="20" placeholder="Sua cidade" list="cidades"/>
+    <datalist id="cidades">
+        <option value="Rio de Janeiro"></option>
+        <option value="Belford Roxo"></option>
+        <option value="Niteroi"></option>
+        <option value="Nova Iguaçu"></option>
+    </datalist> </p>
+    </fieldset>
+
+<fieldset id="mensagem"><legend>Mensagem do Usuário</legend>
+    <p><label for="curg">Grau de Urgência:</label>
+    Min<input type="range" name="turg" id="curg" max="10" min="0" step="5" />Máx</p>
+    <p><label for="cmsg">Mensagem:</label>
+    <textarea name="tmsg" id="cmsg" cols="45" rows="5" placeholder="Digite a sua Mensagem"></textarea></p>
+</fieldset>
+
+<fieldset id="pedido"><legend>Quero um Google Glass</legend>
+    <p><input type="checkbox" name="tped" id="cped" checked/>
+    <label for="cped">Gostaria de adquirir um Google Glass quando disponível</label></p>
+    <p><label for="ccor">Cor:</label>
+    <input type="color" name="tcor" id="ccor" value="#0000ff"/></p>
+    <p><label for="cqtd">Quantidade:</label>
+    <input type="number" name="tqtd" id="cqtd" min="0" max="5" value="0"/></p>
+    <p><label for="ctot">Preço Total: R$</label>
+    <input type="text" name="ttot" id="ctot" placeholder="Total a pagar" readonly/></p>
+    </fieldset>
+
+
+<input type="image" name="tenviar" src="_imagens/botao-enviar.png"/>
+</form>
+
+        </article>
+
+    </section>
+
+    <footer id="rodape">
+        <p>Copyright &copy; 2013 - by Gustavo Guanabara &hearts; <br/>
+            <a href="http://facebook.com/cursoemvideo" target="_blank"> Facebook</a> |
+            <a href="http://twitter.com/cursoemvideo" target="_blank"> Twitter</a></p>
+    </footer>
+</div>
+</body>
+</html>
